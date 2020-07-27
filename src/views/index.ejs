@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=data.title%></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/material/material.min.css">
+    <!-- <link rel="stylesheet" href="/material/dist/material.light_green-light_blue.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <header class="container d-flex flex-column justify-content-center">
+        <h1 id="date" class="py-2 px-1 mt-2 text-center">Thurday, July 18, 2020</h1>
+    </header>
+    <main class="container">
+        <section class="row">
+            <div class="col-sm-6 col-xs-12 pt-5">
+                <form id="add-tasks" class="d-flex flex-column">
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="taskTitle"  name="title">
+                        <label class="mdl-textfield__label" for="taskTitle">Enter TASK TITLE e.g. Home Chores</label>
+                    </div>
+                    
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <textarea class="mdl-textfield__input" type="text" rows= "3" id="taskContent" name="content"></textarea>
+                        <label class="mdl-textfield__label" for="taskContent">ENTER TASK DESCRIPTION HERE</label>
+                      
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6 col-xs-12" m-0>
+                <div class="mdl-grid my-1">
+                    <% for(let i=0; i<data.list.length; i++){ %>
+                        <div class="todo-tab mdl-cell mdl-cell--6-col d-flex flex-column justify-content-start align-items-start">
+                            <h5><strong><%=data.list[i].task%></strong></h5>
+                            <form id="checklist" action="">
+                                <%for(let j=0; j<data.list[i].content.length; j++){%>
+                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="<%=data.list[i].taskshort%>-<%=j%>">
+                                        <input type="checkbox" id="<%=data.list[i].taskshort%>-<%=j%>" class="mdl-checkbox__input">
+                                        <span class="mdl-checkbox__label"><%=data.list[i].content[j]%></span>
+                                    </label>
+                                <%}%>
+                            </form>
+                        
+                        </div>
+                    <%} %>
+                    
+                  </div>
+
+                
+            </div>
+            
+            
+        </section>
+
+    </main>
+    <footer class="d-flex flex-row justify-content-center">this is where the copyright would be</footer>
+</body>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!-- <script src="/public/js/material-custom.js"></script> -->
+<script src="/public/js/time.js"></script>
+<script src="/material/material.min.js"></script>
+<script src="/material/textfield/textfield.js"></script>
+<script src="/material/checkbox/checkbox.js"></script>
+<script>
+    $(document).ready(function(){})
+    var title = $('#title').text();
+    var description = $('#description').innerHtml;
+
+    data = {title: title, description: description};
+
+    $('#add-tasks').submit(function(event) {
+        event.preventDefault();
+        
+    });
+</script>
+<!-- <script src=""></script> -->
+</html>

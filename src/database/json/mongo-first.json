@@ -1,0 +1,47 @@
+{
+    "result": {
+        "ok": 1,
+        "n": 3
+    },
+    "ops": [
+        {
+            "task": "Home Chores",
+            "taskshort": "home-chores",
+            "content": [
+                "Wash Plates",
+                "Shoe Care",
+                "Dance Around",
+                "Sweep Floor"
+            ],
+            "_id": "5f17582a584f341c188b13b6"
+        },
+        {
+            "task": "Work To-do",
+            "taskshort": "work-to-do",
+            "content": [
+                "Clean Office",
+                "Start Coding",
+                "Push to Github",
+                "Coffee Time"
+            ],
+            "_id": "5f17582a584f341c188b13b7"
+        },
+        {
+            "task": "Work To-finish",
+            "taskshort": "work-to-finish",
+            "content": [
+                "Clean Office",
+                "Start Coding",
+                "Push to Github",
+                "Coffee Time"
+            ],
+            "_id": "5f17582a584f341c188b13b8"
+        }
+    ],
+    "insertedCount": 3,
+    "insertedIds": {
+        "0": "5f17582a584f341c188b13b6",
+        "1": "5f17582a584f341c188b13b7",
+        "2": "5f17582a584f341c188b13b8"
+    }
+}
