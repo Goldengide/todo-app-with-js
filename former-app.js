@@ -22,10 +22,36 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 
+let data = {
+    title: "Todo App",
+    list: [
+        {
+            id: 1,
+            task: "Home Chores",
+            taskshort: "home-chores",
+            content: ["Wash Plates", "Shoe Care", "Dance Around", "Sweep Floor"]
+        },
+        {
+            id: 2,
+            task: "Work To-do",
+            taskshort: "work-to-do",
+            content: ["Clean Office", "Start Coding", "Push to Github", "Coffee Time"]
+        },
+        {
+            id: 3,
+            task: "Work To-finish",
+            taskshort: "work-to-finish",
+            content: ["Clean Office", "Start Coding", "Push to Github", "Coffee Time"]
+        }
+    ]
+        
+}
+
+
 app.use('/tasks', taskRoutes);
 
 app.get('/', function(req, res){
-    res.render('index');
+    res.render('index', {data: data});
 });
 
 

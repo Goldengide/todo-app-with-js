@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+// const { query } = require("express");
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Storage Test</title>
-</head>
-
-<body>
-    <p id="storage">Hi, I'm testing my storage type</p>
-    <p id="indexdb">Hi, I'm testing my storage type</p>
-</body>
-
-<script>
     const DB_NAME = 'todoApp';
     const DB_VERSION = 3;
     const DB_STORE_NAME = 'todo';
@@ -58,9 +45,9 @@
         request = db.transaction(DB_STORE_NAME, DB_MAIN_MODE).objectStore(DB_STORE_NAME);
         query = request.getAll();
         query.onsuccess = function () {
-            console.log(query.result)
+            // console.log(query.result)
+            return query.result;
         };
-        console.log((query));
 
     }
     todoAppData = [
@@ -84,10 +71,5 @@
 
 
     
-    openDatabase(getData);
 // console.log(getObjectStore());
 
-
-</script>
-
-</html>

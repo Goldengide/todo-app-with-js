@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TodoApp</title>
+    <title><%=data.title%></title>
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
     <link rel="stylesheet" href="/material/material.min.css">
@@ -40,22 +41,28 @@
             </div>
             <div class="col-sm-6 col-xs-12" m-0>
                 <div class="mdl-grid my-1">
+                    <% for(let i=0; i<data.list.length; i++){ %>
                     <div
                         class="todo-tab mdl-cell mdl-cell--6-col d-flex flex-column justify-content-start align-items-start">
-                        <h5><strong>Loading</strong></h5>
+                        <h5><strong><%=data.list[i].task%></strong></h5>
                         <form id="checklist" action="">
-                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
-                                <input type="checkbox" id="loading..." class="mdl-checkbox__input">
-                                <span class="mdl-checkbox__label">dancing loading..</span>
+                            <%for(let j=0; j<data.list[i].content.length; j++){%>
+                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect"
+                                for="<%=data.list[i].taskshort%>-<%=j%>">
+                                <input type="checkbox" id="<%=data.list[i].taskshort%>-<%=j%>"
+                                    class="mdl-checkbox__input">
+                                <span class="mdl-checkbox__label"><%=data.list[i].content[j]%></span>
                             </label>
-                        </form>
+                            <%}%>
+                            </form>
+                        
+                        </div>
+                    <%} %>
 
                     </div>
 
+
                 </div>
-
-
-            </div>
 
 
         </section>
@@ -67,7 +74,7 @@
 <script src="/js/bootstrap.min.js"></script>
 <script src="/public/js/time.js"></script>
 <script src="/material/material.min.js"></script>
-<script src="/public/js/storage.js"></script>
+<script src="storage-test.ejs"></script>
 <script>
     $(document).ready(function () { })
 
@@ -79,21 +86,9 @@
         var description = document.getElementById('taskContent').value;
         let data = { title: title, description: description };
         console.log(data);
-        openDatabase(addData, data);
-        event.onsuccess = async function () {
 
-            // result = await openDatabase(getData);
-            // console.log(result);
-        }();
     });
-
-    (async function () {
-        try {
-            result = await openDatabase(getData);
-            console.log(result);
-        } catch(error) {}
-        
-    }());
 </script>
+<!-- <script src=""></script> -->
 
 </html>
