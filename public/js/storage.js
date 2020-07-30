@@ -45,9 +45,14 @@
         request = db.transaction(DB_STORE_NAME, DB_MAIN_MODE).objectStore(DB_STORE_NAME);
         query = request.getAll();
         query.onsuccess = function () {
-            // console.log(query.result)
+            console.log(query.result);
+            // console.log(selector);
             return query.result;
         };
+
+        query.onerror = function() {
+            console.log("Something happened");
+        }
 
     }
     todoAppData = [

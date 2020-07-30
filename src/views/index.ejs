@@ -87,13 +87,7 @@
         }();
     });
 
-    (async function () {
-        try {
-            result = await openDatabase(getData);
-            console.log(result);
-        } catch(error) {}
-        
-    }());
+    openDatabase(getData);
 </script>
 
 </html>
